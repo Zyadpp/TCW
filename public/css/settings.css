@@ -1,0 +1,125 @@
+/* Shared fixed-viewport frame for every Settings screen. */
+@media (min-width: 801px) {
+    .settings-layout-page {
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .settings-layout-page .wrapper {
+        height: 100vh;
+        min-height: 0;
+        overflow: hidden;
+    }
+
+    .settings-layout-page .main-content,
+    .settings-layout-page .content,
+    .settings-layout-page .settings-page {
+        min-height: 0;
+    }
+
+    .settings-layout-page .main-content,
+    .settings-layout-page .content {
+        overflow: hidden;
+    }
+
+    .settings-layout-page .settings-page {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .settings-layout-page .settings-page > h1 {
+        flex: 0 0 auto;
+    }
+
+    .settings-layout-page .settings-layout {
+        flex: 1 1 auto;
+        min-height: 0;
+    }
+
+    .settings-layout-page .sidebar,
+    .settings-layout-page .settings-profile-card,
+    .settings-layout-page .settings-form,
+    .settings-layout-page .notification-card {
+        min-height: 0;
+    }
+
+    .settings-layout-page .settings-profile-card,
+    .settings-layout-page .settings-form,
+    .settings-layout-page .notification-card {
+        height: 100%;
+    }
+
+    .settings-layout-page .settings-profile-card {
+        position: sticky;
+        top: 0;
+        align-self: start;
+    }
+
+    /* Navigation state changes only after opening a page, not on hover. */
+    .settings-layout-page .sidebar .menu a:not(.active):hover {
+        background: transparent;
+        color: #3f3f3f;
+    }
+
+    .settings-layout-page .settings-nav a:not(.active):hover {
+        background: transparent;
+        color: #a1a1a1;
+    }
+
+    @media (max-height: 1100px) {
+        .settings-layout-page .sidebar {
+            padding-top: 20px;
+        }
+
+        .settings-layout-page .sidebar .logo {
+            margin-bottom: 19px;
+        }
+
+        .settings-layout-page .sidebar .menu-title {
+            margin: 8px 8px 5px;
+            font-size: 9px;
+        }
+
+        .settings-layout-page .sidebar .menu-title.mt-4 {
+            margin-top: 12px !important;
+        }
+
+        .settings-layout-page .sidebar .menu li {
+            margin-bottom: 0;
+        }
+
+        .settings-layout-page .sidebar .menu a,
+        .settings-layout-page .sidebar .logout-btn {
+            padding: 6px 8px;
+            font-size: 11px;
+        }
+
+        .settings-layout-page .settings-profile-card {
+            padding: 18px 20px;
+        }
+
+        .settings-layout-page .settings-logo-wrap {
+            width: 64px;
+            height: 64px;
+            margin: 12px auto 7px;
+            border-width: 4px;
+        }
+
+        .settings-layout-page .settings-logo-wrap img {
+            width: 47px;
+            height: 34px;
+        }
+
+        .settings-layout-page .settings-nav {
+            gap: 5px;
+            margin-top: 28px;
+        }
+
+        .settings-layout-page .settings-nav a {
+            height: 31px;
+            padding: 7px 10px;
+            font-size: 10px;
+        }
+    }
+}
