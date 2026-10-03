@@ -12,7 +12,7 @@ use Throwable;
 class AuthController extends Controller
 {
     // عرض صفحة تسجيل الدخول
-    public function login()
+    public function web()
     {
         return view('auth.login');
     }
@@ -150,9 +150,11 @@ class AuthController extends Controller
         $request->validate(['otp' => ['required', 'array', 'size:4'], 'otp.*' => ['required', 'digits:1']]);
         $code = implode('', $request->input('otp'));
 
-        if (! $request->session()->has('otp_code')
+        if (
+            ! $request->session()->has('otp_code')
             || now()->timestamp > $request->session()->get('otp_expires_at')
-            || ! hash_equals($request->session()->get('otp_code'), $code)) {
+            || ! hash_equals($request->session()->get('otp_code'), $code)
+        ) {
             return back()->withErrors(['otp' => 'The verification code is invalid or has expired.']);
         }
 
